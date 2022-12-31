@@ -50,13 +50,18 @@ class MarcaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  integer
+     * @param Integer
      * @return \Illuminate\Http\Response
      */
-    public function show(M$id)
+    public function show($id)
     {
         $marca = $this->marca->find($id);
-        return $marca;
+
+        if($marca === null){
+            return ['erro'=>'Recurso pesquisado não existe...'];
+        }else{
+            return $marca;
+        }
     }
 
     /**
@@ -81,8 +86,13 @@ class MarcaController extends Controller
     {
         //$marca->update($request->all());
         $marca = $this->marca->find($id);
-        $marca->update($request->all());
-        return $marca;
+
+        if($marca === null){
+            return ['erro'=>'Impossivel realizar a atualização, o recurso solicitado não existe...'];
+        }else{
+            $marca->update($request->all());
+            return $marca;
+        }
     }
 
     /**
@@ -94,8 +104,12 @@ class MarcaController extends Controller
     public function destroy($id)
     {
         $marca = $this->marca->find($id);
-        $marca->delete();
-        return ['msg' => 'A marca foi removida com sucesso!'];
+
+        if($marca === null){
+            return ['erro'=>'Impossivel remover, o recurso solicitado não existe...'];
+        }else{
+            $marca->delete();
+            return ['msg' => 'A marca foi removida com sucesso!'];
+        }
     }
 }
-;
