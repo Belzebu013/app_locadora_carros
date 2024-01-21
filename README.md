@@ -9,7 +9,7 @@
 
 # App Locadora de carros 
 
-Bem-vindo ao app para locação de carros, seu Sistema delocação de veículos! Antes de começar, certifique-se de seguir as instruções abaixo para configurar corretamente o ambiente de banco de dados.
+Bem-vindo ao app para locação de carros, seu Sistema de locação de veículos! Antes de começar, certifique-se de seguir as instruções abaixo para configurar corretamente o ambiente de banco de dados.
 
 ## Instalação
 
